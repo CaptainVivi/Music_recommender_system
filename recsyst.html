@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Music Recommender</title>
+    <style>
+      /* Set background color and font family */
+      body {
+        background-color: #f7f6f3;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      
+      /* Set container styles */
+      #container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+      }
+      
+      /* Set heading styles */
+      h1 {
+        color: #296c55;
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 30px;
+      }
+      
+      h2 {
+        color: #296c55;
+        margin-top: 30px;
+        margin-bottom: 20px;
+      }
+      
+      /* Set form styles */
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+      
+      label {
+        font-weight: bold;
+        color: #296c55;
+        margin-bottom: 10px;
+      }
+      
+      input[type="text"] {
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        margin-bottom: 20px;
+      }
+      
+      .button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #5d6b3f;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      
+      .button:hover {
+        background-color: #4d5b30;
+      }
+      
+      /* Set list styles */
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      
+      li {
+        font-size: 16px;
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #e9e8e6;
+        box-shadow: 0 0 5px rgba(0,0,0,0.2);
+      }
+      
+      li:last-child {
+        margin-bottom: 0;
+      }
+      
+      /* Set link styles */
+      a {
+        color: #5d6b3f;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+      
+      a:hover {
+        color: #4d5b30;
+      }
+    </style>
+    
+   
+  </head>
+  <body>
+    <div id="container">
+      <h1>Music Recommender</h1>
+      <form action="/similar_tracks" method="post">
+        <label for="preferences">Enter your music preferences:</label>
+        Enter song: <input type="text" id="fav_song" name="song" placeholder="Enter song">
+        Enter artist: <input type="text" id="fav_artist" name="artist" placeholder="Enter artist">
+        <input type="submit" class="button" value="Submit">
+      </form>
+      <h2>Recommended Songs</h2>
+      <ul id="song-list">
+        {% for song in similar_songs %}
+            <li>{{ song[0] }}, {{ song[1] }}</li>
+        {% endfor %}
+        </ul>
+        
+      
+      </div>
+
+    
+  </body>
+</html>
